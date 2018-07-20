@@ -607,3 +607,53 @@ GET
   hangUp| List | 挂机人, 0: AI 1: 用户 |
   taskResult| String | 任务结果分析 |
   resultMsg| String | 响应说明 |
+
+##单次电话外呼
+ 
+###功能说明：
+ 
+ 通过调用此接口可以进行单次电话外呼
+ 
+ >JSON响应实例：
+ 
+ ```
+ {
+     "code": 200,
+     "data": null,
+     "resultMsg": "外呼成功",
+     "errorStackTrace": null
+ }
+ 
+ ```
+ 
+###请求：
+ 
+ URL：http://api.byrobot.cn/openapi/v1/task/call
+ 
+###请求方法：
+ 
+ POST
+ 
+ 
+###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 实例 
+ --------- | ------- |------- | ------ |----------
+  customerId| Integer| 是 | 客户Id| 1 |  
+  mobile| Integer| 是 | 客户手机号| 1 |  
+  companyId| Integer| 是 | 公司Id| 1 |  
+  variables| Map<String,String>| 是 | 变量（如果话术内设置变量则需要传入）| 1 |      
+  sceneId| Integer| 是 | 机器人话术场景Id| 1 |  
+  sceneRecordId| Integer| 是 |机器人话术录音Id | 1 |  
+  robotDefId| Integer| 是 | 机器人话术Id | 1 |  
+  
+  ##variable参数说明
+  当您单次电话外呼的话术配置过变量的时候，需要为变量设置替换值
+  Map<String,String>，第一个String为变量名，第二个为变量的替换值
+ 
+###响应：
+ 
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+  code|Integer | 响应码 |
+  resultMsg| String | 响应说明 |
